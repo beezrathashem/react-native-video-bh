@@ -2,7 +2,6 @@ import AVFoundation
 import AVKit
 import Foundation
 import MediaPlayer
-import AVFoundation
 
 #if USE_GOOGLE_IMA
     import GoogleInteractiveMediaAds
@@ -313,6 +312,8 @@ class RCTVideo: UIView, RCTVideoPlayerViewControllerDelegate, RCTPlayerObserverH
         _player?.pause()
         _player?.rate = 0.0
     }
+
+    @objc
     func applicationDidBecomeActive(notification _: NSNotification!) {
         let isExternalPlaybackActive = getIsExternalPlaybackActive()
         if _playInBackground || _playWhenInactive || !_isPlaying || isExternalPlaybackActive { return }
